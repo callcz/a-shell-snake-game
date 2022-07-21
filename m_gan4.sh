@@ -1,15 +1,20 @@
 #!/bin/bash
 ##
-## This is a snake game written by shell script,
+## This is a snake game ,
 ## Written by callcz in 20220719 .
 ## Use the number keys to control the direction .
 ##
 #echo $$>pid.txt
 ##help
-if [[ $1 = help || $1 = --help || $1 = -h ]]
+if [[ $1 = help || $1 = --help || $1 = '-h' ]]
 then
 	head -n5 $0
+	echo "## Usage \"$0 turn\/-t\" to turn flip up and down the keys"
 	exit
+fi
+if [[ $1 = turn || $1 = '-t' ]]
+then
+	turn=1
 fi
 ##Declare global variables
 logo_head=■
@@ -48,6 +53,30 @@ get_key_l(){
 	while [[ ! $go_w && $((time_old+speed)) -ge $((`date +%s%N`/1000000)) ]]
 	do
 		read -t "$speed_s" -n 1 key
+		printf_l $((y_max+8)) 2 $1
+		if [[ $turn = 1 ]]
+		then
+			case $key in
+				2)
+					key=8
+					;;
+				8)
+					key=2
+					;;
+				1)
+					key=7
+					;;
+				3)
+					key=9
+					;;
+				7)
+					key=1
+					;;
+				9)
+					key=3
+					;;
+			esac
+		fi
 		case $key in
 			2)
 				if [[ $go != down ]];then go_w=up;fi
