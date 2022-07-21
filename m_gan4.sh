@@ -9,7 +9,7 @@
 if [[ $1 = help || $1 = --help || $1 = '-h' ]]
 then
 	head -n5 $0
-	echo "## Usage \"$0 turn\/-t\" to turn flip up and down the keys"
+	echo "## Usage \"$0 turn or -t\" to turn flip up and down the keys"
 	exit
 fi
 if [[ $1 = turn || $1 = '-t' ]]
