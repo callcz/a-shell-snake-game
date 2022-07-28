@@ -44,7 +44,7 @@ handshake_l(){
 		exit
 fi
 }
-handshake_l
+#handshake_l
 #echo $puid >puid.txt
 trap "kill -10 $puid;echo -en '\033[?25h';exit" 2
 while :
@@ -91,7 +91,7 @@ do
 				else
 					puid=`ps -ef|grep main_gen_snake.sh|grep bash|awk '{print $2}'`
 				fi
-				handshake_l
+				#handshake_l
 			fi
 			;;
 		q)
