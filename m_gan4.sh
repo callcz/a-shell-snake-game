@@ -1,10 +1,9 @@
 #!/bin/bash
-##
+## old version
 ## This is a snake game ,
 ## Written by callcz in 20220719 .
 ## Use the number keys to control the direction .
 ##
-#echo $$>pid.txt
 ##help
 if [[ $1 = help || $1 = --help || $1 = '-h' ]]
 then
